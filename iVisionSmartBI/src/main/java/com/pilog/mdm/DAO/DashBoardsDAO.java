@@ -658,6 +658,14 @@ public class DashBoardsDAO {
 	@Transactional
 	public JSONObject getFramedChartDataObject(HttpServletRequest request, List selectData, List<String> columnKeys,
 			JSONObject layoutObj, JSONObject dataPropObj, String chartType) {
+		boolean hasTemp = false;
+
+		for (String key : columnKeys) {
+			if ("temp".equalsIgnoreCase(key)) {
+				hasTemp = true;
+				break;
+			}
+		}
 
 		Double currencyConversionRate = null;
 		JSONArray colorsArr = new JSONArray();
@@ -721,7 +729,9 @@ public class DashBoardsDAO {
 				}
 				for (int i = 0; i < selectData.size(); i++) {
 					Object[] rowData = (Object[]) selectData.get(i);
-					for (int j = 0; j < rowData.length; j++) {
+					int rowDataLen = rowData.length;
+					if(hasTemp) rowDataLen--;
+					for (int j = 0; j < rowDataLen; j++) {
 						if (dataObj != null && !dataObj.isEmpty() && dataObj.get(columnKeys.get(j)) != null) {
 							JSONArray jsonDataArr = (JSONArray) dataObj.get(columnKeys.get(j));
 							if (rowData[j] != null) {
@@ -12944,6 +12954,7 @@ JSONArray columnsListArrayFromQuery = new JSONArray();
 									String columnCatgName = resultSetMetaData.getCatalogName(i);
 									String columnType = resultSetMetaData.getColumnTypeName(i);
 									String tableName = resultSetMetaData.getSchemaName(i);
+									if(!"temp".equalsIgnoreCase(columnName))
 									dataTypeCount.put(columnType,  (int) dataTypeCount.getOrDefault(columnType, 0)+ 1);
 									JSONObject dataFieldObj = new JSONObject(); 
 
@@ -13110,6 +13121,7 @@ JSONArray columnsListArrayFromQuery = new JSONArray();
 			if(colListStrForComplexQueries ==null || "".equalsIgnoreCase(colListStrForComplexQueries) ) {
 				colListStrForComplexQueries = colListStr;
 			}
+			script = script.replaceAll("<","@LT#").replaceAll(">","@GT#");
 			if (colSize == 1) {
 				result += "<div class=\"col-lg-4 my-2 px-1 col-md-4 visualChartsByQueryClass\"><img onclick= "+methodName+"('"
 						+ colListStr + "','indicator','" + tableName + "','" + joinQueryFlag + "','" + script

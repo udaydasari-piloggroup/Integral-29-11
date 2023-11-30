@@ -7668,7 +7668,7 @@ function getVisualizeChart(chartId, chartType, axix, values, table, aggColumnNam
 				};
 				var compareChartButton = {
 					name: 'Compare Charts', icon: compareChart, click: function(chartId) {
-						getCompareChart(chartId['id'], chartType);
+						getHomeDashboardCompareFilters(chartId['id'], chartType);
 					}
 				};
 				var normalChartButton = {
@@ -17603,13 +17603,14 @@ function applyCompareChartFilters(dashBoardName) {
 }
 
 
-function getHomeDashboardCompareFilters() {
+function getHomeDashboardCompareFilters(id,chartType) {
 	showLoader();
 	var chartDropDownVal;
-	var item = $("#OptionDropdownData").jqxDropDownList('getSelectedItem');
-	if (item != null) {
-		chartDropDownVal = item.value;
-	}
+    var item =  $("#OptionDropdownData").jqxDropDownList('getSelectedItem');
+    if(item !=null)
+    {
+        chartDropDownVal = item.value;
+    }
 	$.ajax({
 		type: "POST",
 		url: "getHomeChartSlicerData",
@@ -17635,17 +17636,17 @@ function getHomeDashboardCompareFilters() {
 					+ "<span class='visionVisualizeHomeChartTwoFiltersFieldSpanClass'>Add Fields Here</span></div>"
 					+ "<div id='visionVisualizeHomeChartTwoFiltersValues' class='visionVisualizeHomeChartTwoFiltersValuesClass'></div>"
 					+ "</div>";
-				closeAllDialogsBoxes();
+                closeAllDialogsBoxes();
 				$("#dialog1").html(Resultstr);
 				$("#dialog1").dialog({
 					title: (labelObject['Message'] != null ? labelObject['Message'] : 'Message'),
-					width: 650,
-					maxWidth: 650,
+					width: 950,
+					maxWidth: 950,
 					height: 400,
 					maxHeight: 1000,
 					fluid: true,
 					buttons: [{
-						text: (labelObject['Save'] != null ? labelObject['Save'] : 'Save'),
+						text: (labelObject['Save'] != null ? labelObject['Next'] : 'Next'),
 						click: function() {
 							var items = {};
 							var itemsList1 = [];
@@ -17660,7 +17661,7 @@ function getHomeDashboardCompareFilters() {
 
 
 							});
-							$('#visionVisualizeHomeChartTwoFiltersValues div').each(function(event) {
+							$('#visionVisualizeHomeChartOneFiltersValues div').each(function(event) {
 								let value = $(this).text();
 								let id = $(this).attr('id');
 								if (value != null && value != '' && value != undefined) {
@@ -17670,16 +17671,78 @@ function getHomeDashboardCompareFilters() {
 							});
 							items['chart1'] = itemsList1;
 							items['chart2'] = itemsList2;
-							$(this).html("");
-							$(this).dialog("close");
-							$(this).dialog("destroy");
-							updateHomeCompareFilterData(items);
+                            updateHomeCompareFilterData(items);
+                            getHomeCompareChartFilterData("visionDashBoardHomeCompareFilterId", chartDropDownVal, JSON.stringify(items));
+                            getCompareChart(id,chartType);
+                            $(this).append($('#visionDashBoardHomeCompareFilterId'));
+							$('#visionVisualizeHomeChartOneFiltersValues').on('DOMNodeInserted','div',function(){
+							var items = {};
+                            var itemsList1 = [];
+                            var itemsList2 = [];
+                            $('#visionVisualizeHomeChartOneFiltersValues div').each(function(event) {
+                                let value = $(this).text();
+                                let id = $(this).attr('id');
+                                if (value != null && value != '' && value != undefined) {
+                                    value = $.trim(value);
+                                }
+                                itemsList1.push(value);
+
+
+                            });
+                            $('#visionVisualizeHomeChartOneFiltersValues div').each(function(event) {
+                                let value = $(this).text();
+                                let id = $(this).attr('id');
+                                if (value != null && value != '' && value != undefined) {
+                                    value = $.trim(value);
+                                }
+                                itemsList2.push(value);
+                            });
+                            items['chart1'] = itemsList1;
+                            items['chart2'] = itemsList2;
+                            updateHomeCompareFilterData(items);
+                            getHomeCompareChartFilterData("visionDashBoardHomeCompareFilterId", chartDropDownVal, JSON.stringify(items));
+                            getCompareChart(id,chartType);
+                            $('#dialog1').append($('#visionDashBoardHomeCompareFilterId'));
+
+
+
+							});
+
+							 $(this).dialog("option", "buttons", [{
+								 text: (labelObject['Ok'] != null ? labelObject['Ok'] : 'Ok'),
+                                        click: function() {
+                                            applyCompareChartFilters(chartDropDownVal);
+                                              closeDialogBox('#dialog1');
+                                            if ($('#visionDashBoardHomeCompareFilterId').length === 0)
+                                            			                $('body').append(`<div id='visionDashBoardHomeCompareFilterId' class='visionDashBoardHomeFilterClass row' style="display:none"></div>`);
+
+
+										}
+
+							 },
+							{
+                                        text: (labelObject['Cancel'] != null ? labelObject['Cancel'] : 'Cancel'),
+                                        click: function() {
+                                        closeDialogBox('#dialog1');
+                                        if ($('#visionDashBoardHomeCompareFilterId').length === 0)
+                                        			                $('body').append(`<div id='visionDashBoardHomeCompareFilterId' class='visionDashBoardHomeFilterClass row' style="display:none"></div>`);
+
+
+                                        }
+                                    }]);
+
+
+
+
 						}
 
 					},
 					{
 						text: (labelObject['Cancel'] != null ? labelObject['Cancel'] : 'Cancel'),
 						click: function() {
+                            if ($('#visionDashBoardHomeCompareFilterId').length === 0)
+                            			                $('body').append(`<div id='visionDashBoardHomeCompareFilterId' class='visionDashBoardHomeFilterClass row' style="display:none"></div>`);
+
 							$(this).html("");
 							$(this).dialog("close");
 							$(this).dialog("destroy");
@@ -17701,7 +17764,7 @@ function getHomeDashboardCompareFilters() {
 
 
 						var tableNameId = "visionVisualizeHomeChartTableToggleClass li";
-						$('.' + tableNameId).draggable({//cube changes 
+						$('.' + tableNameId).draggable({//cube changes
 							revert: "invalid",
 							helper: "clone"
 
@@ -17732,6 +17795,7 @@ function getHomeDashboardCompareFilters() {
 
 
 								}
+								//onchangeCompareFilter(chartDropDownVal,chartType);
 							}
 
 						});
@@ -17770,9 +17834,11 @@ function getHomeDashboardCompareFilters() {
 						$(".visionVisualizationDragColumns").addClass('visionVisualizationDragFilterColumns');
 						$("#dialog1").addClass('filterPopUp');
 						$(".ui-dialog").addClass('homePageDDSlicer');
-						$(".ui-dialog").css("z-index", "99999"); //jaggu
+						$(".ui-dialog").css("z-index", "1088"); //jaggu
 					},
 					beforeClose: function(event, ui) {
+                if ($('#visionDashBoardHomeCompareFilterId').length === 0)
+                			                $('body').append(`<div id='visionDashBoardHomeCompareFilterId' class='visionDashBoardHomeFilterClass row' style="display:none"></div>`);
 
 					}
 				});
@@ -17806,18 +17872,18 @@ function updateHomeCompareFilterData(items) {
 		},
 		success: function(response) {
 			if (response != null) {
-				var modalObj = {
-					title: 'Message',
-					body: response
-				};
-				var buttonArray = [
-					{
-						text: 'Ok',
-						isCloseButton: true
-					}
-				];
-				modalObj['buttons'] = buttonArray;
-				createModal("dialog", modalObj);
+//				var modalObj = {
+//					title: 'Message',
+//					body: response
+//				};
+//				var buttonArray = [
+//					{
+//						text: 'Ok',
+//						isCloseButton: true
+//					}
+//				];
+//				modalObj['buttons'] = buttonArray;
+//				createModal("dialog", modalObj);
 			}
 		},
 		error: function(e) {
@@ -18707,7 +18773,8 @@ function getCompareChart(chartId, chartType) {
 							$("#visionDashBoardHomeFilterId").hide();
 							$("#visionDashBoardHomeCompareFilterId").show();
 							if (!(compareChartsArr != null && !jQuery.isEmptyObject(compareChartsArr) && compareChartsArr.indexOf(chartId) > -1)) {
-								compareChartsArr.push(chartid);
+							compareChartsArr=[];
+							compareChartsArr.push(chartid);
 							}
 						}
 
@@ -36984,6 +37051,36 @@ function getCandlestickChart(chartId, response, count, chartType, dashBoardFlag)
 		}
 	}
 }
+function onchangeCompareFilter(chartDropDownVal,chartType){
+var items = {};
+var itemsList1 = [];
+var itemsList2 = [];
+$('#visionVisualizeHomeChartOneFiltersValues div').each(function(event) {
+let value = $(this).text();
+let id = $(this).attr('id');
+if (value != null && value != '' && value != undefined) {
+value = $.trim(value);
+}
+itemsList1.push(value);
+
+
+});
+$('#visionVisualizeHomeChartOneFiltersValues div').each(function(event) {
+let value = $(this).text();
+let id = $(this).attr('id');
+if (value != null && value != '' && value != undefined) {
+value = $.trim(value);
+}
+itemsList2.push(value);
+});
+items['chart1'] = itemsList1;
+items['chart2'] = itemsList2;
+updateHomeCompareFilterData(items);
+getHomeCompareChartFilterData("visionDashBoardHomeCompareFilterId", chartDropDownVal, JSON.stringify(items));
+getCompareChart(id,chartType);
+$(this).append($('#visionDashBoardHomeCompareFilterId'));
+}
+
 
 
 

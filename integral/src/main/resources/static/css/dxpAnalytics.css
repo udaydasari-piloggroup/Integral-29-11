@@ -6421,4 +6421,17 @@ div#visionInsightsVisualizationChartDataId table tr td{
         .homeChartWrapDiv  .homeChartParentDiv {
                 		height: 100%;
                 	}
-	
+		.dashBoardHomeChartOneCompareFiltersClass .dashBoardHomeChartOneCompareFiltersTableClass tr td,
+    	.dashBoardHomeChartTwoCompareFiltersClass .dashBoardHomeChartTwoCompareFiltersTableClass tr td{
+        		border:0;
+        	}
+        	.dashBoardHomeChartOneCompareFiltersClass .dashBoardHomeChartOneCompareFiltersTableClass tr.visionDashBoardCompareChartFiltersTrClass .visionDashBoardCompareChartFiltersTdClass .innerFilterDivClass .visionDashBoardCompareColOperatorsClass,
+        	.dashBoardHomeChartOneCompareFiltersClass .dashBoardHomeChartOneCompareFiltersTableClass tr.visionDashBoardCompareChartFiltersTrClass .visionDashBoardCompareChartFiltersTdClass .innerFilterDivClass .visionDashBoardCompareColOperatorsClass .visionDashBoardCompareChartOperatorClass,
+        	.dashBoardHomeChartOneCompareFiltersClass .dashBoardHomeChartOneCompareFiltersTableClass tr.visionDashBoardCompareChartFiltersTrClass .visionDashBoardCompareChartFiltersTdClass .innerFilterDivClass .visionDashBoardCompareColOperatorsClass,
+            .dashBoardHomeChartTwoCompareFiltersClass .dashBoardHomeChartTwoCompareFiltersTableClass tr.visionDashBoardCompareChartFiltersTrClass .visionDashBoardCompareChartFiltersTdClass .innerFilterDivClass .visionDashBoardCompareColOperatorsClass .visionDashBoardCompareChartOperatorClass{
+        		width:100px;
+        		margin-right:15px;
+        	}
+    .visionDbCompareChartsFilterButtonDivClass,.visionVisualizeDashboardHomeComapreTwoFiletersSpanClass,.visionVisualizeHomeChartTwoFiltersValues,.visionVisualizeChartTwoFiltersFieldClass{
+                display:none;
+    }

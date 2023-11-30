@@ -1,10 +1,253 @@
 var HtmlEntities = {
-	" ": "&nbsp;"
+    "'": "&apos;",
+    "<": "&lt;",
+    ">": "&gt;",
+    " ": "&nbsp;",
+    "¡": "&iexcl;",
+    "¢": "&cent;",
+    "£": "&pound;",
+    "¤": "&curren;",
+    "¥": "&yen;",
+    "¦": "&brvbar;",
+    "§": "&sect;",
+    "¨": "&uml;",
+    "©": "&copy;",
+    "ª": "&ordf;",
+    "«": "&laquo;",
+    "¬": "&not;",
+    "®": "&reg;",
+    "¯": "&macr;",
+    "°": "&deg;",
+    "±": "&plusmn;",
+    "²": "&sup2;",
+    "³": "&sup3;",
+    "´": "&acute;",
+    "µ": "&micro;",
+    "¶": "&para;",
+    "·": "&middot;",
+    "¸": "&cedil;",
+    "¹": "&sup1;",
+    "º": "&ordm;",
+    "»": "&raquo;",
+    "¼": "&frac14;",
+    "½": "&frac12;",
+    "¾": "&frac34;",
+    "¿": "&iquest;",
+    "À": "&Agrave;",
+    "Á": "&Aacute;",
+    "Â": "&Acirc;",
+    "Ã": "&Atilde;",
+    "Ä": "&Auml;",
+    "Å": "&Aring;",
+    "Æ": "&AElig;",
+    "Ç": "&Ccedil;",
+    "È": "&Egrave;",
+    "É": "&Eacute;",
+    "Ê": "&Ecirc;",
+    "Ë": "&Euml;",
+    "Ì": "&Igrave;",
+    "Í": "&Iacute;",
+    "Î": "&Icirc;",
+    "Ï": "&Iuml;",
+    "Ð": "&ETH;",
+    "Ñ": "&Ntilde;",
+    "Ò": "&Ograve;",
+    "Ó": "&Oacute;",
+    "Ô": "&Ocirc;",
+    "Õ": "&Otilde;",
+    "Ö": "&Ouml;",
+    "×": "&times;",
+    "Ø": "&Oslash;",
+    "Ù": "&Ugrave;",
+    "Ú": "&Uacute;",
+    "Û": "&Ucirc;",
+    "Ü": "&Uuml;",
+    "Ý": "&Yacute;",
+    "Þ": "&THORN;",
+    "ß": "&szlig;",
+    "à": "&agrave;",
+    "á": "&aacute;",
+    "â": "&acirc;",
+    "ã": "&atilde;",
+    "ä": "&auml;",
+    "å": "&aring;",
+    "æ": "&aelig;",
+    "ç": "&ccedil;",
+    "è": "&egrave;",
+    "é": "&eacute;",
+    "ê": "&ecirc;",
+    "ë": "&euml;",
+    "ì": "&igrave;",
+    "í": "&iacute;",
+    "î": "&icirc;",
+    "ï": "&iuml;",
+    "ð": "&eth;",
+    "ñ": "&ntilde;",
+    "ò": "&ograve;",
+    "ó": "&oacute;",
+    "ô": "&ocirc;",
+    "õ": "&otilde;",
+    "ö": "&ouml;",
+    "÷": "&divide;",
+    "ø": "&oslash;",
+    "ù": "&ugrave;",
+    "ú": "&uacute;",
+    "û": "&ucirc;",
+    "ü": "&uuml;",
+    "ý": "&yacute;",
+    "þ": "&thorn;",
+    "ÿ": "&yuml;",
+    "Œ": "&OElig;",
+    "œ": "&oelig;",
+    "Š": "&Scaron;",
+    "š": "&scaron;",
+    "Ÿ": "&Yuml;",
+    "ƒ": "&fnof;",
+    "ˆ": "&circ;",
+    "˜": "&tilde;",
+    "Α": "&Alpha;",
+    "Β": "&Beta;",
+    "Γ": "&Gamma;",
+    "Δ": "&Delta;",
+    "Ε": "&Epsilon;",
+    "Ζ": "&Zeta;",
+    "Η": "&Eta;",
+    "Θ": "&Theta;",
+    "Ι": "&Iota;",
+    "Κ": "&Kappa;",
+    "Λ": "&Lambda;",
+    "Μ": "&Mu;",
+    "Ν": "&Nu;",
+    "Ξ": "&Xi;",
+    "Ο": "&Omicron;",
+    "Π": "&Pi;",
+    "Ρ": "&Rho;",
+    "Σ": "&Sigma;",
+    "Τ": "&Tau;",
+    "Υ": "&Upsilon;",
+    "Φ": "&Phi;",
+    "Χ": "&Chi;",
+    "Ψ": "&Psi;",
+    "Ω": "&Omega;",
+    "α": "&alpha;",
+    "β": "&beta;",
+    "γ": "&gamma;",
+    "δ": "&delta;",
+    "ε": "&epsilon;",
+    "ζ": "&zeta;",
+    "η": "&eta;",
+    "θ": "&theta;",
+    "ι": "&iota;",
+    "κ": "&kappa;",
+    "λ": "&lambda;",
+    "μ": "&mu;",
+    "ν": "&nu;",
+    "ξ": "&xi;",
+    "ο": "&omicron;",
+    "π": "&pi;",
+    "ρ": "&rho;",
+    "ς": "&sigmaf;",
+    "σ": "&sigma;",
+    "τ": "&tau;",
+    "υ": "&upsilon;",
+    "φ": "&phi;",
+    "χ": "&chi;",
+    "ψ": "&psi;",
+    "ω": "&omega;",
+    "ϑ": "&thetasym;",
+    "ϒ": "&Upsih;",
+    "ϖ": "&piv;",
+    "–": "&ndash;",
+    "—": "&mdash;",
+    "‘": "&lsquo;",
+    "’": "&rsquo;",
+    "‚": "&sbquo;",
+    "“": "&ldquo;",
+    "”": "&rdquo;",
+    "„": "&bdquo;",
+    "†": "&dagger;",
+    "‡": "&Dagger;",
+    "•": "&bull;",
+    "…": "&hellip;",
+    "‰": "&permil;",
+    "′": "&prime;",
+    "″": "&Prime;",
+    "‹": "&lsaquo;",
+    "›": "&rsaquo;",
+    "‾": "&oline;",
+    "⁄": "&frasl;",
+    "€": "&euro;",
+    "ℑ": "&image;",
+    "℘": "&weierp;",
+    "ℜ": "&real;",
+    "™": "&trade;",
+    "ℵ": "&alefsym;",
+    "←": "&larr;",
+    "↑": "&uarr;",
+    "→": "&rarr;",
+    "↓": "&darr;",
+    "↔": "&harr;",
+    "↵": "&crarr;",
+    "⇐": "&lArr;",
+    "⇑": "&UArr;",
+    "⇒": "&rArr;",
+    "⇓": "&dArr;",
+    "⇔": "&hArr;",
+    "∀": "&forall;",
+    "∂": "&part;",
+    "∃": "&exist;",
+    "∅": "&empty;",
+    "∇": "&nabla;",
+    "∈": "&isin;",
+    "∉": "&notin;",
+    "∋": "&ni;",
+    "∏": "&prod;",
+    "∑": "&sum;",
+    "−": "&minus;",
+    "∗": "&lowast;",
+    "√": "&radic;",
+    "∝": "&prop;",
+    "∞": "&infin;",
+    "∠": "&ang;",
+    "∧": "&and;",
+    "∨": "&or;",
+    "∩": "&cap;",
+    "∪": "&cup;",
+    "∫": "&int;",
+    "∴": "&there4;",
+    "∼": "&sim;",
+    "≅": "&cong;",
+    "≈": "&asymp;",
+    "≠": "&ne;",
+    "≡": "&equiv;",
+    "≤": "&le;",
+    "≥": "&ge;",
+    "⊂": "&sub;",
+    "⊃": "&sup;",
+    "⊄": "&nsub;",
+    "⊆": "&sube;",
+    "⊇": "&supe;",
+    "⊕": "&oplus;",
+    "⊗": "&otimes;",
+    "⊥": "&perp;",
+    "⋅": "&sdot;",
+    "⌈": "&lceil;",
+    "⌉": "&rceil;",
+    "⌊": "&lfloor;",
+    "⌋": "&rfloor;",
+    "⟨": "&lang;",
+    "⟩": "&rang;",
+    "◊": "&loz;",
+    "♠": "&spades;",
+    "♣": "&clubs;",
+    "♥": "&hearts;",
+    "♦": "&diams;"
 };
 
 var unHtmlEntities = {
-	"&nbsp;": " "
-};
+
+	"&apos;":"'","&lt;":"<","&gt;":">","&nbsp;":" ","&iexcl;":"¡","&cent;":"¢","&pound;":"£","&curren;":"¤","&yen;":"¥","&brvbar;":"¦","&sect;":"§","&uml;":"¨","&copy;":"©","&ordf;":"ª","&laquo;":"«","&not;":"¬","&reg;":"®","&macr;":"¯","&deg;":"°","&plusmn;":"±","&sup2;":"²","&sup3;":"³","&acute;":"´","&micro;":"µ","&para;":"¶","&middot;":"·","&cedil;":"¸","&sup1;":"¹","&ordm;":"º","&raquo;":"»","&frac14;":"¼","&frac12;":"½","&frac34;":"¾","&iquest;":"¿","&Agrave;":"À","&Aacute;":"Á","&Acirc;":"Â","&Atilde;":"Ã","&Auml;":"Ä","&Aring;":"Å","&AElig;":"Æ","&Ccedil;":"Ç","&Egrave;":"È","&Eacute;":"É","&Ecirc;":"Ê","&Euml;":"Ë","&Igrave;":"Ì","&Iacute;":"Í","&Icirc;":"Î","&Iuml;":"Ï","&ETH;":"Ð","&Ntilde;":"Ñ","&Ograve;":"Ò","&Oacute;":"Ó","&Ocirc;":"Ô","&Otilde;":"Õ","&Ouml;":"Ö","&times;":"×","&Oslash;":"Ø","&Ugrave;":"Ù","&Uacute;":"Ú","&Ucirc;":"Û","&Uuml;":"Ü","&Yacute;":"Ý","&THORN;":"Þ","&szlig;":"ß","&agrave;":"à","&aacute;":"á","&acirc;":"â","&atilde;":"ã","&auml;":"ä","&aring;":"å","&aelig;":"æ","&ccedil;":"ç","&egrave;":"è","&eacute;":"é","&ecirc;":"ê","&euml;":"ë","&igrave;":"ì","&iacute;":"í","&icirc;":"î","&iuml;":"ï","&eth;":"ð","&ntilde;":"ñ","&ograve;":"ò","&oacute;":"ó","&ocirc;":"ô","&otilde;":"õ","&ouml;":"ö","&divide;":"÷","&oslash;":"ø","&ugrave;":"ù","&uacute;":"ú","&ucirc;":"û","&uuml;":"ü","&yacute;":"ý","&thorn;":"þ","&yuml;":"ÿ","&OElig;":"Œ","&oelig;":"œ","&Scaron;":"Š","&scaron;":"š","&Yuml;":"Ÿ","&fnof;":"ƒ","&circ;":"ˆ","&tilde;":"˜","&Alpha;":"Α","&Beta;":"Β","&Gamma;":"Γ","&Delta;":"Δ","&Epsilon;":"Ε","&Zeta;":"Ζ","&Eta;":"Η","&Theta;":"Θ","&Iota;":"Ι","&Kappa;":"Κ","&Lambda;":"Λ","&Mu;":"Μ","&Nu;":"Ν","&Xi;":"Ξ","&Omicron;":"Ο","&Pi;":"Π","&Rho;":"Ρ","&Sigma;":"Σ","&Tau;":"Τ","&Upsilon;":"Υ","&Phi;":"Φ","&Chi;":"Χ","&Psi;":"Ψ","&Omega;":"Ω","&alpha;":"α","&beta;":"β","&gamma;":"γ","&delta;":"δ","&epsilon;":"ε","&zeta;":"ζ","&eta;":"η","&theta;":"θ","&iota;":"ι","&kappa;":"κ","&lambda;":"λ","&mu;":"μ","&nu;":"ν","&xi;":"ξ","&omicron;":"ο","&pi;":"π","&rho;":"ρ","&sigmaf;":"ς","&sigma;":"σ","&tau;":"τ","&upsilon;":"υ","&phi;":"φ","&chi;":"χ","&psi;":"ψ","&omega;":"ω","&thetasym;":"ϑ","&Upsih;":"ϒ","&piv;":"ϖ","&ndash;":"–","&mdash;":"—","&lsquo;":"‘","&rsquo;":"’","&sbquo;":"‚","&ldquo;":"“","&rdquo;":"”","&bdquo;":"„","&dagger;":"†","&Dagger;":"‡","&bull;":"•","&hellip;":"…","&permil;":"‰","&prime;":"′","&Prime;":"″","&lsaquo;":"‹","&rsaquo;":"›","&oline;":"‾","&frasl;":"⁄","&euro;":"€","&image;":"ℑ","&weierp;":"℘","&real;":"ℜ","&trade;":"™","&alefsym;":"ℵ","&larr;":"←","&uarr;":"↑","&rarr;":"→","&darr;":"↓","&harr;":"↔","&crarr;":"↵","&lArr;":"⇐","&UArr;":"⇑","&rArr;":"⇒","&dArr;":"⇓","&hArr;":"⇔","&forall;":"∀","&part;":"∂","&exist;":"∃","&empty;":"∅","&nabla;":"∇","&isin;":"∈","&notin;":"∉","&ni;":"∋","&prod;":"∏","&sum;":"∑","&minus;":"−","&lowast;":"∗","&radic;":"√","&prop;":"∝","&infin;":"∞","&ang;":"∠","&and;":"∧","&or;":"∨","&cap;":"∩","&cup;":"∪","&int;":"∫","&there4;":"∴","&sim;":"∼","&cong;":"≅","&asymp;":"≈","&ne;":"≠","&equiv;":"≡","&le;":"≤","&ge;":"≥","&sub;":"⊂","&sup;":"⊃","&nsub;":"⊄","&sube;":"⊆","&supe;":"⊇","&oplus;":"⊕","&otimes;":"⊗","&perp;":"⊥","&sdot;":"⋅","&lceil;":"⌈","&rceil;":"⌉","&lfloor;":"⌊","&rfloor;":"⌋","&lang;":"⟨","&rang;":"⟩","&loz;":"◊","&spades;":"♠","&clubs;":"♣","&hearts;":"♥","&diams;":"♦"
+	};
 
 function showIntelliSenseSuggestions() {
 	$(".leftFileUploads").hide();
@@ -402,6 +645,10 @@ function showQueryCharts(script, columnsList,tableName,joinQueryFlag,prependFlag
 	if (columnsList != null && !jQuery.isEmptyObject(columnsList)) {
 		colLength = columnsList.length;
 	}
+	var containsTemp = columnsList.some(function(column) {
+        return column.toLowerCase() === "temp";
+    });
+    	if(containsTemp) colLength--;
 	dataTypeCountObj =dataTypeCountObj.replaceAll('#','"');
 	if (colLength != null && colLength != '' && colLength != undefined) {
 		$.ajax({
@@ -1029,6 +1276,12 @@ function getQueryForVoiceSearch(response,methodName)
 	var query =  response["query"]; 
 	var tableName=response['tableName']
 	var columnsList = response['columnsList'];
+//	for (var entitykey in HtmlEntities) {
+//    			var entity = HtmlEntities[entitykey];
+//    			var regex = new RegExp(entitykey, 'g');
+//    			query = query.replace(regex, entity);
+//    			/*regexTableName = tableName.replace(regex, entity);*/
+//    		}
 	if(query !=null && query !='' && query !=undefined ){
 		var connectionName = "Current_V10";
 		showLoader();
@@ -1096,6 +1349,7 @@ function getQueryForVoiceSearch(response,methodName)
 					showQueryCharts(resultQuery,columnsList, tableName, joinQueryFlag,"Y",dataTypeCountObj,methodName,columnsListForComplexQueries);
 
 				} else {
+				        stopLoader();
 						$("#dialog").html(response['message']);
 						$("#dialog").dialog({
 							title: (labelObject['Message'] != null ? labelObject['Message'] : 'Message'),
@@ -1829,8 +2083,16 @@ function getVoiceModalChartSuggestions(chartId, dataObj, valueColumns, axisColum
 						}else{
 							 valueName = value.columnName;
 						}
+
+						var openIndex = valueName.indexOf('(', 0);
+				        var closeIndex = valueName.indexOf(')', openIndex);
+
+				        if (openIndex !== -1 && closeIndex !== -1) {
+				            valuesColumnName =  valueName.substring(openIndex + 1, closeIndex).trim();
+
+				        }
 						
-						valuesColumnName = valueName.replace(/[()]/g, "");
+//						valuesColumnName = valueName.replace(/[()]/g, "");
 						valuesColumnName = valuesColumnName.replace(/_/g, " ");
 						defaultLegendNames[valuesColumnName] = valuesColumnName;
 						var legendLabels = value['userProvidedLegendLabel'];
@@ -1843,15 +2105,24 @@ function getVoiceModalChartSuggestions(chartId, dataObj, valueColumns, axisColum
 						}
 					});
 					$.each(axisColumns, function(index, value) {
-						var axisName = value.columnName.split(".")[1];
-						if(!(axisName !=null && axisName !='' && axisName !=undefined))
+						axisName = value.columnName.split(".")[1];
+                        if(axisName ==null || axisName =='' || axisName == undefined)
 						{
 							axisName = value.columnName;
-						}
+
+						var openIndex = axisName.indexOf('(', 0);
+                        var closeIndex = axisName.indexOf(')', openIndex);
+
+                        if (openIndex !== -1 && closeIndex !== -1) {
+                            axisColumnName =  axisName.substring(openIndex + 1, closeIndex).trim();
+
+                        }
+                        }
 						axisColumnName = axisName.replace(/[()]/g, "");
 						axisColumnName = axisColumnName.replace(/_/g, " ");
 						defaultLegendNames[axisColumnName] = axisColumnName;
 						title += " by " + axisColumnName;
+
 					});
 
 					var initTitle = "";
@@ -2494,12 +2765,12 @@ function getInsightsView(tableName,insightsData,queryMap,columnsListMap)
 {
 	insightsQueryMapArr[tableName]= queryMap;
 	insightsColumnMapArr[tableName] =columnsListMap;
-	var ulStr = "<ul> <h6>Insights</h6>";
-	$.each(insightsData,function(i,val)
-	{
-		ulStr += "<li onclick='showInsightsChartAndData(\""+i+"\",\""+tableName+"\")'>"+i+"</li>";
-	});
-	ulStr += "</ul>";
+	var ulStr = `<ul> <h6>Insights</h6>`;
+    	$.each(insightsData,function(i,val)
+    	{
+    		ulStr += `<li onclick="showInsightsChartAndData(${i},${tableName})">${i}</li>`;
+    	});
+    	ulStr += `</ul>`;
 	$("#visionChartsAutoSuggestionUserId1").html(ulStr);
 	switchSmartBiDesignTabs('li_autoSuggestionsView', 'visionChartAutoSuggestionsViewId');
 	
@@ -2529,6 +2800,7 @@ function getInsightsSuggestedChartBasedonCols(columnsList, chartType,tableName,j
 	closeDialogBox("#dialog");
 	tableName= tableName.replaceAll(':', ' ');
 	columnsList= columnsList.replaceAll(':', ' ').replaceAll('#','"');
+//	script=script.replaceAll("@LT#",'<').replaceAll("@GT#",">");
 	var columnsListForComplexQuery  =columnsList;
 	var createcount = 0;
 	var axisColumns;

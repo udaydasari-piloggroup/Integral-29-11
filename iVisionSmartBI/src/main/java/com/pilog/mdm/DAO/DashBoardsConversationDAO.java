@@ -506,16 +506,23 @@ public class DashBoardsConversationDAO {
 			ResultSet results = statement.executeQuery(query);
 			ResultSetMetaData metadata = results.getMetaData();
 			int columnCount = metadata.getColumnCount();
+			boolean hasTemp=false;
 			if (columnCount > 0) {
 				tableHeader = "<thead>";
 				for (int i = 1; i <= columnCount; i++) {
 					String columnName = metadata.getColumnName(i);
-					tableHeader += "<th>" + columnName + "</th>";
+					if(!"temp".equalsIgnoreCase(columnName)) {
+						tableHeader += "<th>" + columnName + "</th>";
+					}
+					else{
+						hasTemp = true;
+					}
 				}
 				tableHeader += "</thead>";
 			}
 
 			String tableStr = "";
+
 			if (query != null && !"".equalsIgnoreCase(query) && !"null".equalsIgnoreCase(query)) {
 				List listData = access.sqlqueryWithParams(query, new HashMap());
 				if (listData != null && !listData.isEmpty()) {
@@ -533,7 +540,10 @@ public class DashBoardsConversationDAO {
 							Object[] objData = (Object[]) listData.get(i);
 							if (objData != null) {
 								tableStr += "<tr>";
-								for (int j = 0; j < objData.length; j++) {
+								int objDataLen = objData.length;
+								if(hasTemp) objDataLen --;
+
+								for (int j = 0; j < objDataLen; j++) {
 									tableStr += "<td>" + objData[j] + "</td>";
 								}
 								tableStr += "</tr>";
